@@ -1,0 +1,85 @@
+<body>
+    <form>
+        <select name="selectedEmployee" [(ngModel)]="selectedEmployee">
+            <option default>All Employees</option>
+            @for (employee of employeeItems(); track employee.id) {
+                <option>{{employee.name}} {{employee.surname}}</option>
+            }
+        </select>
+    </form>
+        
+
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Name</th> 
+            <th>Surname</th> 
+            <th>Hourly Rate</th> 
+            <th>Salary</th> 
+            <th>Normal Hours Worked</th> 
+            <th>Normal Amount Paid</th> 
+            <th>Overtime Hours Worked</th> 
+            <th>Overtime Amount Paid</th> 
+            <th>Public Holiday Hours Worked</th> 
+            <th>Public Holiday Amount Paid</th> 
+            <th>Leave Hours Worked</th> 
+            <th>Leave Amount Paid</th> 
+            <th>Gross Amount</th> 
+            <th>UIF Contribution</th> 
+            <th>Barganing Council</th> 
+            <th>Uniforms</th>  
+            <th>Till Shortage</th> 
+            <th>Wastages</th> 
+            <th>Other Deductions</th> 
+            <th>Net Amount</th> 
+            <th>Leave BF</th>   
+            <th>Leave Acc</th> 
+            <th>Leave Taken</th> 
+            <th>Sick Leave Taken</th> 
+            <th>Other Taken</th> 
+            <th>PaySlipCycle</th>  
+            <th>PaySlipDate</th>
+            <th>EmployeeId</th>
+        </thead>
+
+        <tbody>
+            @for (payslip of payslipItems()|filterPayslips: selectedEmployee(); track payslip.id) {
+                <tr>
+                    <td>{{ payslip.id }}</td>
+                    <td>{{ payslip.name }}</td>
+                    <td>{{ payslip.surname }}</td>
+                    <td>{{ payslip.hourlyRate }}</td>
+                    <td>{{ payslip.salary }}</td>
+                    <td>{{ payslip.normalHoursWorked }}</td>
+                    <td>{{ payslip.normalAmountPaid }}</td>
+                    <td>{{ payslip.overtimeHoursWorked }}</td>
+                    <td>{{ payslip.overtimeAmountPaid }}</td>
+                    <td>{{ payslip.publicHolidayHoursWorked }}</td>
+                    <td>{{ payslip.publicHolidayAmountPaid }}</td>
+                    <td>{{ payslip.leaveHoursWorked }}</td>
+                    <td>{{ payslip.leaveAmountPaid }}</td>
+                    <td>{{ payslip.grossAmount }}</td>
+                    <td>{{ payslip.uifContribution }}</td>
+                    <td>{{ payslip.barganingCouncil }}</td>
+                    <td>{{ payslip.uniforms }}</td>
+                    <td>{{ payslip.tillShortage }}</td>
+                    <td>{{ payslip.wastages }}</td>
+                    <td>{{ payslip.otherDeductions }}</td>
+                    <td>{{ payslip.netAmount }}</td>
+                    <td>{{ payslip.leaveBF }}</td>
+                    <td>{{ payslip.leaveAcc }}</td>
+                    <td>{{ payslip.leaveTaken }}</td>
+                    <td>{{ payslip.sickLeaveTaken }}</td>
+                    <td>{{ payslip.otherTaken }}</td>
+                    <td>{{ payslip.paySlipCycle }}</td>
+                    <td>{{ payslip.paySlipDate }}</td>
+                    <td>{{ payslip.employeeId }}</td>
+                </tr>
+            }
+        </tbody>
+       
+    </table>
+
+
+
+</body>

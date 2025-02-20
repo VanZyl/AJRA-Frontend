@@ -1,0 +1,140 @@
+<!-- <p>employeedata-database works!</p> -->
+
+<body  class="wrapper">
+<form class="filter__employees">
+    <label>Filter Employees: </label>
+    <input name="searchTerm" [(ngModel)] = "searchTerm" placeholder="Search the employee..." />
+    <!-- <button class="icon-button"><i class="fa fa-plus" aria-hidden="true" ></i></button> -->
+    <button class="fa fa-plus"id="icon-button" (click)="onAdd()"></button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>EmployeeID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>IDNumber</th>
+            <th>Hourlyrate</th>
+            <th>Designation</th>
+            <th>Leave</th>
+            <th>SickLeave</th>
+            <th>OtherLeave</th>
+            <th>Salary</th>
+            <th>TaxRefNum</th>
+            <th>WorkStatus</th>
+            <th>StatusChangeDate</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    
+    @for (employee of employeeItems() | filterEmployees : searchTerm(); track employee.id) {
+        <tbody>
+            @if (!employee.isEditing) {
+                <tr>
+                    <td>{{ employee.id }}</td>
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.surname }}</td>
+                    <td>{{ employee.idNumber }}</td>
+                    <td>{{ employee.hourlyRate }}</td>
+                    <td>{{ employee.designation }}</td>
+                    <td>{{ employee.leave }}</td>
+                    <td>{{ employee.sickLeave }}</td>
+                    <td>{{ employee.otherLeave }}</td>
+                    <td>{{ employee.salary }}</td>
+                    <td>{{ employee.taxRefNum }}</td>
+                    <td>{{ employee.workStatus }}</td>
+                    <td>{{ employee.statusChangeDate }}</td>
+                     <th> 
+                        <!-- <i class="fa fa-pencil-square-o" aria-hidden="true" (click)="onEdit(employee)"></i>   -->
+                        <i class="fa fa-trash-o" aria-hidden="true" (click)="onDelete(employee)"></i>        
+                    </th> 
+                </tr>
+
+            }@else if (employee.isEditing) {
+                <tr>
+                    <td>
+                        <div>
+                            <input type="text" [(ngModel)]="employee.id" />
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <input type="text" [(ngModel)]="employee.name" />
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <input type="text" [(ngModel)]="employee.surname" />
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <input type="text" [(ngModel)]="employee.idNumber" />
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <input type="text" [(ngModel)]="employee.hourlyRate" />
+                        </div>
+                    </td>
+                        <td><select (change)="onDesignationSelect(employee)" [(ngModel)]="employee.designation">
+                            @for (designation of Designations(); track $index) {
+                                @if (designation === employee.designation) {
+                                    <option selected>{{designation}}</option>
+                                } @else {
+                                    <option>{{designation}}</option>
+                                }
+                            }
+                        </select></td>
+                    <td>
+                        <div>
+                            <input type="text" [(ngModel)]="employee.leave" />
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <input type="text" [(ngModel)]="employee.sickLeave" />
+                        </div>
+                    </td>
+
+                    <td>
+                        <div>
+                            <input type="text" [(ngModel)]="employee.otherLeave" />
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <input type="text" [(ngModel)]="employee.salary" />
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <input type="text" [(ngModel)]="employee.taxRefNum" />
+                        </div>
+                    </td>
+                    <td><select (change)="onStatusSelect(employee)" [(ngModel)]="employee.workStatus">
+                        @for (status of statuses(); track $index) {
+                            @if (status === employee.workStatus) {
+                                <option selected>{{status}}</option>
+                            } @else {
+                                <option>{{status}}</option>
+                            }
+                        }
+                    </select></td>
+                    <td>
+                        <div>
+                            <input type="text" [(ngModel)]="employee.statusChangeDate" />
+                        </div>
+                    </td>
+                    <td>
+                        <i class="fa fa-floppy-o" aria-hidden="true" title="Save" (click)="onSave(employee)"></i>  <!-- Save -->
+                        <i class="fa fa-ban" aria-hidden="true" (click)="onCancel(employee)" title="Cancel"></i>        <!-- Cancel -->
+                    </td>
+                </tr>
+            }            
+        </tbody>
+        }
+
+</table>
+</body>

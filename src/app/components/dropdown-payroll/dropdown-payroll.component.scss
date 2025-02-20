@@ -1,0 +1,179 @@
+.dropdown {
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.dropdown-header {
+  background-color: #f4f4f4;
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.dropdown-header span {
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+
+.dropdown-header span.rotate {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+.dropdown-content ul {
+  list-style-type: none;  /* Removes the bullet points */
+  padding: 10px;
+  margin: 0;
+}
+
+.dropdown-item {
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f4f4f4;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.response {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  white-space: pre-wrap;
+}
+
+.payslip-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.payslip-header h2 {
+  font-size: 28px;
+  color: #333;
+}
+
+.payslip-header p {
+  font-size: 16px;
+  color: #777;
+}
+
+.payslip-section {
+  margin-bottom: 30px;
+}
+
+.payslip-section h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.payslip-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  width: 48%;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 95%;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group button{
+  width: 95%;
+  padding: 12px 10px;
+  font-size: 14px;
+  border: 1px solid #28a745;
+  border-radius: 4px;
+  align-items: center;
+}
+
+.form-group button:hover {
+  background-color: #218838;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #218838;
+}
+
+.form-group-right {
+  width: 48%;
+  margin-left: auto; /* Push the element to the right */
+}
+
+.form-group-right label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.form-group-right input {
+  margin-left: auto; /* Align input box to the right */
+  width: 95%;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="button"] {
+  width: 100%;
+  padding: 12px 24px;
+  background-color: #28a745;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.payslip-form-footer {
+  display: flex;
+  justify-content: flex-end; /* Aligns button to the right */
+}
+
+button[type="button"]:hover {
+  background-color: #0056b3;
+
+}

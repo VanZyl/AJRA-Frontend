@@ -1,0 +1,72 @@
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: auto;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 3px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%; /* Prevent input from overflowing */
+}
+
+#icon-button {
+    width: 50px; /* Set the button width */
+    height: 50px; /* Set the button height */
+    display: flex;
+    align-items: center; /* Center icon vertically */
+    justify-content: center; /* Center icon horizontally */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-sizing: border-box; /* Include borders in width/height */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    border-color: #0747a6;
+}
+
+
+form {
+    margin-top: 20px;
+    margin-left: 70px;
+    display: flex;
+    justify-content: left;
+    align-items: right;
+}
+
+i {
+    color: #0747a6;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.wrapper {
+    width: 100%;
+    overflow-x: auto; /* Allow horizontal scrolling */
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 14px; /* Reduce font size for smaller screens */
+    }
+
+    form {
+        margin-left: 20px; /* Adjust form margin */
+    }
+}

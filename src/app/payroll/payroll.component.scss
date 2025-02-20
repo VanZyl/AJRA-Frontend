@@ -1,0 +1,326 @@
+/* Main container */
+h1{
+    align-items: center;
+    text-align: center;
+}
+
+.form-container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    flex-direction: column; /* Ensures the cards stack vertically */
+    height: 100%;
+}
+
+/////////////////////////////////////////////////////////////////////////
+// Start of the card
+/////////////////////////////////////////////////////////////////////////
+
+
+// .card {
+//     background: white;
+//     border-radius: 10px;
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+//     width: 100%;
+//     max-width: 500px; /* Sets a maximum width for the card */
+//     padding: 30px;
+//     margin: 10px 0; /* Adds vertical space between cards */
+//     padding-bottom: 30px;
+// }
+
+// .card p {
+//     text-align: center;
+//     font-size: 20px;
+//     margin-bottom: 20px;
+//     color: #333;
+//     font-weight: bold;
+    
+// }
+
+// .card input{
+//     width: 100px;
+//     min-width: 100px;
+//     padding: 10px;
+//     margin: 10px 0;
+//     border-radius: 5px;
+//     border: 1px solid #ccc;
+// }
+// .card button{
+//     padding: 12px 20px;
+//     font-size: 16px;
+//     background-color: #28a745;
+//     color: white;
+//     border: none;
+//     border-radius: 5px;
+//     cursor: pointer;
+//     transition: background-color 0.3s ease;
+//     align-self: flex-end;
+//     margin-left: 20px;
+
+// }
+
+.cards-container {
+    display: flex;
+    gap: 30px; /* Space between left and right sections */
+    padding: 30px;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+}
+
+.cards-container .card {
+    flex: 1; /* Default flex for cards */
+}
+
+.right-cards {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    gap: 20px; /* Space between stacked cards */
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 500px; /* Limits card width */
+    padding: 30px;
+    width: 100%; /* Full width within its container */
+}
+
+.card p {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+.card input {
+    width: 100px;
+    min-width: 100px;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.card button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-end;
+    margin-left: 20px;
+}
+
+.card button:hover {
+    background-color: #218838;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+/// End of the card
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+/// Start of the select container
+/// 
+
+.select-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds space between selects */
+    
+}
+
+.select-container select {
+    width: 100%;
+}
+
+.select-container input {
+    width: 100%;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+///     End of the select container
+///////////////////////////////////////////////////////////////////////////////////////    
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+/// Start of the date entry container
+/// 
+
+.date-entry-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+font-family: Arial, sans-serif;
+}
+
+.date-entry-container label {
+font-size: 14px;
+color: #555;
+}
+
+.date-entry-container input {
+width: 60px;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 4px;
+text-align: center;
+font-size: 14px;
+}
+
+.date-entry-container input:focus {
+border-color: #007bff;
+box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+outline: none;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+/// End of the date entry container
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+/// Start of the upload container
+/// 
+
+select, input[type="file"] {
+    padding: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center;
+}
+
+
+button:hover {
+    background-color: #218838;
+}
+
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.payslip-items {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.payslip-items label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.payslip-items input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Add space between input and button */
+}
+
+.filter-container input {
+    flex: 1; /* Allow the input to take up available space */
+    padding: 8px;
+    font-size: 14px;
+}
+
+.filter-container button {
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+/// End of the upload container
+///////////////////////////////////////////////////////////////////////////////////////
+/// 
+/// 
+/// 
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+/// Start of the input-container
+/// 
+
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+    font-family: Arial, sans-serif;
+}
+  
+.input-container label {
+width: 100px; /* Adjust label width as needed */
+font-size: 14px;
+color: #555;
+}
+
+.input-container input {
+flex: 1;
+padding: 8px 8px;
+font-size: 14px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+.input-container input:focus {
+border-color: #007bff;
+box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+outline: none;
+}
+
+.input-container input::placeholder {
+color: #aaa;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+/// 
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .cards-container {
+        flex-direction: column;
+    }
+}

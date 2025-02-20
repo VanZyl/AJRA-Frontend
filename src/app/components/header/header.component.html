@@ -1,0 +1,20 @@
+<header>
+    <nav>
+        <span routerLink="/">{{title()}}</span>
+        <div class="dropdown">
+            <button class="dropbtn" (click)="toggleDropdown()">Admin</button>
+            <div class="dropdown-content" [class.show]="dropdownVisible">
+              <ul>
+                <li routerLink="/payroll" (click)="toggleDropdown()">Payroll</li>
+              </ul>
+              <ul>
+                <li routerLink="/employeesview" (click)="toggleDropdown()">Employee Management</li>
+              </ul>
+            </div>
+        </div>
+        
+        <ul>
+            <li routerLink="/database">Databases</li>
+        </ul>
+    </nav>
+</header>

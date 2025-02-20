@@ -1,0 +1,34 @@
+<!-- <h3>{{selectedOption()}}</h3> -->
+
+<div>
+    <select  [(ngModel)]="selectedOption">
+        <option default>Employee Database</option>
+        <option>Employee Payslips</option>
+    </select>
+</div>
+
+
+@if (!selectedOption()) {
+    <p> Please select a database</p>
+}@else if (selectedOption() === 'Employee Database') {
+
+    @if (!employeeItems().length) {
+        <p>No employees found</p>
+    }
+
+    <app-employeedata-database [employeeItems]="employeeItems()"/>      <!-- Adds in the components that displays the employee data can now add components for each of the other database tables and add conditions for when to include them -->
+} @else if (selectedOption() === 'Employee Payslips') {
+    
+        @if (!payslipItems().length) {
+            <p>No payslips found</p>
+        }
+    
+        <app-employeepayslips-database [payslipItems]="payslipItems()" [employeeItems]="employeeItems()"/>      <!-- Adds in the components that displays the payslip data can now add components for each of the other database tables and add conditions for when to include them -->
+}
+
+
+
+
+
+
+

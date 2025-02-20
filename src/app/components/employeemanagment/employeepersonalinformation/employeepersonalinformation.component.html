@@ -1,0 +1,146 @@
+<div class="personal-info-container">
+    <h2>Employee Personal Information</h2>
+    <form>
+       <!-- First Row -->
+       <div class="input-row">
+        <div class="input-container">
+          <label>Employee ID</label>
+            @if(isNewEmployee()) {
+              <input type="text" [(ngModel)]="employee().id" name="employeeid"/>
+            } @else {
+              <input type="text" [(ngModel)]="employee().id" name="employeeid" disabled/>
+            }
+        </div>
+        <div class="input-container">
+          <label>Designation</label>
+          <select (change)="onDesignationSelect(employee())" [(ngModel)]="employee().designation" name="designation">
+            @for (designation of Designations(); track $index) {
+                @if (designation === employee().designation) {
+                    <option selected>{{designation}}</option>
+                } @else {
+                    <option>{{designation}}</option>
+                }
+            }
+        </select>
+        </div>
+      </div>
+
+      <!-- First Row -->
+      <div class="input-row">
+        <div class="input-container">
+          <label>First Name</label>
+          <input type="text" id="firstName" [(ngModel)]="employee().name" name="firstname" />
+        </div>
+        <div class="input-container">
+          <label>Last Name</label>
+          <input type="text" id="lastName" [(ngModel)]="employee().surname" name="surname" />
+        </div>
+      </div>
+  
+      <!-- Second Row -->
+      <div class="input-row">
+        <div class="input-container">
+          <label>ID Number</label>
+          <input id="idnumber" [(ngModel)]="employee().idNumber" name="idnumber" />
+        </div>
+        <div class="input-container">
+          <label>Tax Reference Number</label>
+          <input id="taxrefnum" [(ngModel)]="employee().taxRefNum" name="taxrefnum" />
+        </div>
+      </div>
+
+      @if (employee().designation != "Independant Contractor" || employee().designation === "") {
+        <div class="input-row">
+          <div class="input-container">
+            <label >Store Location</label>
+            <select [(ngModel)]="employee().storeId" name="storeId">
+              @for (store of storeID(); track $index) {
+                  @if (store === employee().storeId) {
+                      <option selected>{{store}}</option>
+                  } @else {
+                      <option>{{store}}</option>
+                  }
+              }
+          </select>
+          </div>
+          <div class="input-container">
+            <label>Store Designation</label>
+            <select [(ngModel)]="employee().storeDesignation" name="storedesignation">
+              @for (storedesignation of storeDesignation(); track $index) {
+                  @if (storedesignation === employee().storeDesignation) {
+                      <option selected>{{storedesignation}}</option>
+                  } @else {
+                      <option>{{storedesignation}}</option>
+                  }
+              }
+          </select>
+          </div>
+        </div>
+
+        <!-- Add more rows as needed -->
+        <div class="input-row">
+          <div class="input-container">
+            <label >Hourly Rate</label>
+            <input type="text" id="hourlyrate" [(ngModel)]="employee().hourlyRate" name="hourlyrate"/>
+          </div>
+          <div class="input-container">
+            <label>Leave</label>
+            <input type="text" id="leave" [(ngModel)]="employee().leave" name="leave" disabled/>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-container">
+            <label >Sick Leave</label>
+            <input type="text" id="sickleave" [(ngModel)]="employee().sickLeave" name="sickLeave"/>
+          </div>
+          <div class="input-container">
+            <label>Other Leave</label>
+            <input type="text" id="otherleave" [(ngModel)]="employee().otherLeave" name="otherLeave"/>
+          </div>
+        </div>
+      }
+
+      <div class="input-row">
+        <div class="input-container">
+          <label >Work Status</label>
+          <select (change)="onStatusSelect(employee())" [(ngModel)]="employee().workStatus" name="workstatus">
+            @for (status of statuses(); track $index) {
+                @if (status === employee().workStatus) {
+                    <option selected>{{status}}</option>
+                } @else {
+                    <option>{{status}}</option>
+                }
+            }
+        </select>
+        </div>
+        <div class="input-container">
+          <label>Status Change Date</label>
+          <input type="date" id="statuschangedate" [(ngModel)]="employee().statusChangeDate" name="statuschangedate"/>
+        </div>
+      </div>
+
+  
+      <!-- Add more rows as needed -->
+      <div class="input-row">
+        <div class="input-container">
+          <label >Bank Name</label>
+          <input type="text" id="bank" [(ngModel)]="employee().bankName" name="bankname"/>
+        </div>
+        <div class="input-container">
+          <label for="address">Account Number</label>
+          <input type="text" id="accountnumber" [(ngModel)]="employee().accountNumber" name="accountnumber"/>
+        </div>
+      </div>
+  
+      <button type="submit" (click)="onSave(employee())">
+      @if (isNewEmployee()) {
+        Create
+      }
+      @else {
+        Save
+      }   
+    </button>
+    </form>
+  </div>
+  

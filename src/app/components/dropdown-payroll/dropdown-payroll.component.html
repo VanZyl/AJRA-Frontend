@@ -1,0 +1,207 @@
+
+<div class="dropdown">
+    <div class="dropdown-header" (click)="toggleDropdown()">
+      <h3>{{ payslip().name}} {{payslip().surname}}</h3>
+      <span [class.rotate]="isExpanded">&#9662;</span>
+    </div>
+    @if (isExpanded) {
+    <div class="dropdown-content">
+      <form (ngSubmit)="tryItOut()">
+        <div class="payslip-header">
+          <h2>Edit Payslip</h2>
+          <p>Employee Payslip Details</p>
+        </div>
+
+        <div class="payslip-section">
+          <h3>Payslip Cycle and Date</h3>
+          <div class="payslip-row">
+            <div class="form-group">
+              <label for="payslipdate">Payslip Date</label>
+              <input type="text" id="payslipdate" name="payslipdate" [(ngModel)]="payslip().paySlipDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="payslipcycle">Payslip Cycle</label>
+              <input type="text" id="payslipcycle" name="payslipcycle" [(ngModel)]="payslip().paySlipCycle" class="form-control" required>
+            </div>
+          </div>
+        </div>
+    
+        <div class="payslip-section">
+          <h3>Personal Information</h3>
+          <div class="payslip-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" [(ngModel)]="payslip().name" class="form-control" required disabled>
+            </div>
+            <div class="form-group">
+              <label for="surname">Surname</label>
+              <input type="text" id="surname" name="surname" [(ngModel)]="payslip().surname" class="form-control" required disabled>
+            </div>
+          </div>
+        </div>
+    
+        <div class="payslip-section">
+          <h3>Pay Details</h3>
+          <div class="payslip-row">
+            <div class="form-group">
+              <label for="hourlyRate">Hourly Rate</label>
+              <input type="number" id="hourlyRate" name="hourlyRate" [(ngModel)]="payslip().hourlyRate" class="form-control" required disabled>
+            </div>
+            <div class="form-group">
+              <label for="salary">Salary</label>
+              <input type="number" id="salary" name="salary" [(ngModel)]="payslip().salary" class="form-control" required disabled>
+            </div>
+          </div>
+        </div>
+    
+        <div class="payslip-section">
+          <h3>Income Details</h3>
+          <div class="payslip-row">
+            <div class="form-group">
+              <label for="normalHoursWorked">Normal Hours Worked</label>
+              <input type="number" id="normalHoursWorked" name="normalHoursWorked" [(ngModel)]="payslip().normalHoursWorked" class="form-control"  required (keyup)="onNormalChanged()">
+            </div>
+            <div class="form-group">
+              <label for="normalAmountPaid">Normal Amount Paid</label>
+              <input type="number" id="normalAmountPaid" name="normalAmountPaid" [(ngModel)]="payslip().normalAmountPaid" class="form-control" required disabled>
+            </div>
+          </div>
+          <div class="payslip-row">
+            <div class="form-group">
+              <label for="overtimeHoursWorked">Overtime Hours Worked</label>
+              <input type="number" id="overtimeHoursWorked" name="overtimeHoursWorked" [(ngModel)]="payslip().overtimeHoursWorked" class="form-control" required (keyup)="onOvertimeChanged()">
+            </div>
+            <div class="form-group">
+              <label for="overtimeAmountPaid">Overtime Amount Paid</label>
+              <input type="number" id="overtimeAmountPaid" name="overtimeAmountPaid" [(ngModel)]="payslip().overtimeAmountPaid" class="form-control" required disabled>
+            </div>
+          </div>
+          <div class="payslip-row">
+            <div class="form-group">
+              <label for="publicHolidayHoursWorked">Public Holiday Hours Worked</label>
+              <input type="number" id="publicHolidayHoursWorked" name="publicHolidayHoursWorked" [(ngModel)]="payslip().publicHolidayHoursWorked" class="form-control" required (keyup)="onPublicHolidayChanged()">
+            </div>
+            <div class="form-group">
+              <label for="publicHolidayAmountPaid">Public Holiday Amount Paid</label>
+              <input type="number" id="publicHolidayAmountPaid" name="publicHolidayAmountPaid" [(ngModel)]="payslip().publicHolidayAmountPaid" class="form-control" required disabled>
+            </div>
+          </div>
+          <div class="payslip-row">
+            <div class="form-group">
+              <label for="leavehoursworked">Leave Hours Worked</label>
+              <input type="number" id="leavehoursworked" name="leavehoursworked" [(ngModel)]="payslip().leaveHoursWorked" class="form-control" required (keyup)="onLeaveHoursChanged()">
+            </div>
+            <div class="form-group">
+              <label for="leaveAmountPaid">Leave Amount Paid</label>
+              <input type="number" id="leaveAmountPaid" name="leaveAmountPaid" [(ngModel)]="payslip().leaveAmountPaid" class="form-control" required disabled>
+            </div>
+          </div>
+          <div class="payslip-row">
+            <div class="form-group-right">
+              <label for="grossAmount"><b>Gross Income</b></label>
+              <input type="number" id="grossAmount" name="grossAmount" [(ngModel)]="payslip().grossAmount" class="form-control" required disabled>
+            </div>
+          </div>
+        </div>
+    
+        <div class="payslip-section">
+          <h3>Deductions</h3>
+          <div class="payslip-row">
+            <div class="form-group">
+              <label for="uifContribution">UIF Contributions</label>
+              <input type="number" id="uifContribution" name="uifContribution" [(ngModel)]="payslip().uifContribution" class="form-control" required (keyup)="onDeduction()">
+            </div>
+            <div class="form-group">
+              <label for="bargainingCouncil">Barganing Council</label>
+              <input type="number" id="bargainingCouncil" name="bargainingCouncil" [(ngModel)]="payslip().barganingCouncil" class="form-control" required (keyup)="onDeduction()">
+            </div>
+          </div>
+          <div class="payslip-row">
+            <div class="form-group">
+              <label for="uniforms">Uniforms</label>
+              <input type="number" id="uniforms" name="uniforms" [(ngModel)]="payslip().uniforms" class="form-control" required (keyup)="onDeduction()">
+            </div>
+            <div class="form-group">
+              <label for="tillShortage">Till Shortage</label>
+              <input type="number" id="tillShortage" name="tillShortage" [(ngModel)]="payslip().tillShortage" class="form-control" required (keyup)="onDeduction()">
+            </div>
+          </div>
+          <div class="payslip-row">
+            <div class="form-group">
+              <label for="wastages">Wastages</label>
+              <input type="number" id="wastages" name="wastages" [(ngModel)]="payslip().wastages" class="form-control" required (keyup)="onDeduction()">
+            </div>
+            <div class="form-group">
+              <label for="otherDeductions">Other Deductions</label>
+              <input type="number" id="otherDeductions" name="otherDeductions" [(ngModel)]="payslip().otherDeductions" class="form-control" required (keyup)="onDeduction()">
+            </div>
+          </div>
+          <div class="payslip-row">
+            <div class="form-group-right">
+              <label for="netAmount"><b>Nett Pay</b></label>
+              <input type="number" id="netAmount" name="netAmount" [(ngModel)]="payslip().netAmount" class="form-control" required disabled>
+            </div>
+          </div>
+        </div>
+
+        <div class="payslip-section">
+          <h3>Leave Details</h3>
+          <div class="payslip-row">
+            <div class="form-group">
+              <label for="leaveDue">Leave Due</label>
+              <input type="text" id="leaveDue" name="leaveDue" [(ngModel)]="leaveDue" class="form-control" required disabled>
+            </div>
+            <div class="form-group">
+              <label for="leaveTaken">Leave Taken</label>
+              <input type="text" id="leaveTaken" name="leaveTaken" [(ngModel)]="payslip().leaveTaken" class="form-control" required (keyup)="onLeaveTaken()">
+            </div>
+          </div>
+          <div class="payslip-row">
+            <div class="form-group">
+              <label for="sickLeaveTaken">Sick Leave taken</label>
+              <input type="text" id="sickLeaveTaken" name="sickLeaveTaken" [(ngModel)]="payslip().sickLeaveTaken" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="otherLeaveTaken">Other Leave Taken</label>
+              <input type="text" id="otherLeaveTaken" name="otherLeaveTaken" [(ngModel)]="payslip().otherTaken" class="form-control" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="payslip-section">
+          <h3>Exclusion List</h3>
+          <div class="payslip-row">
+            <div class="form-group">
+              <label for="exclusionList">Exclusion List</label>
+              <input type="text" id="exclusionList" name="exclusionList" [(ngModel)]="exclusionList" class="form-control" required>
+            </div>
+            <div class="form-group button-group">
+              <label for="exclusionList">Add Exclusion</label>
+              <button type="button" (click)="addExclusion()">Exclude</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropdown-header" (click)="toggleMiniDropdown()">
+          <h3>Employee Workdays Details</h3>
+          <span [class.rotate]="isLittleExpanded">&#9662;</span>
+        </div>
+
+        @if (isLittleExpanded) {
+          <ul class="dropdown-content">
+            @for (item of payslip().workdays; track $index) {
+              <li class="dropdown-item"><b>{{item}}</b></li>
+            }
+          </ul>
+          }
+    
+        <div class="payslip-form-footer">
+          <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+        </div>
+        
+      </form>
+    </div>
+    }
+    
+  </div>
+  

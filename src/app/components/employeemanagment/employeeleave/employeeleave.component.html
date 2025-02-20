@@ -1,0 +1,62 @@
+<div class="content">
+  <table class="leave-table">
+    <thead>
+      <tr>
+        <th>Leave Code</th>
+        <th>Description</th>
+        <th>Date From</th>
+        <th>Date To</th>
+        <th>Days Taken</th>
+        <th>Days Accrued</th>
+        <th>Days Due</th>
+        <th>Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of leaveItems(); track $index) {
+        @if (isEditing() && $index === leaveItems().length - 1) {
+          <tr>
+            <td>
+              {{item.TransCode}}
+            </td>
+            <td>
+              <select
+                class="table-select"
+                [(ngModel)]="item.Description"
+                (ngModelChange)="updateTransCode(item)"
+              >
+                @for (option of leaveOptions; track option.code) {
+                  <option [value]="option.label">{{ option.label }}</option>
+                }
+              </select>
+            </td>
+            <td><input type="date" [(ngModel)]="item.DateFrom" /></td>
+            <td><input type="date" [(ngModel)]="item.DateTo" /></td>
+            <td><input type="text" [(ngModel)]="item.DaysTaken" /></td>
+            <td><input type="text" [(ngModel)]="item.DaysAccrued" /></td>
+            <td><input type="text" [(ngModel)]="item.DaysDue" /></td>
+            <td><input type="text" [(ngModel)]="item.Remarks" /></td>
+          </tr>
+        }@else{
+          <tr>
+            <td>{{ item.TransCode }}</td>
+            <td>{{ item.Description }}</td>
+            <td>{{ item.DateFrom }}</td>
+            <td>{{ item.DateTo }}</td>
+            <td>{{ item.DaysTaken }}</td>
+            <td>{{ item.DaysAccrued }}</td>
+            <td>{{ item.DaysDue }}</td>
+            <td>{{ item.Remarks }}</td>
+          </tr>
+        }
+        
+      }
+    </tbody>
+  </table>
+
+  <!-- Buttons Section -->
+  <div class="buttons-container">
+    <button class="add-btn" (click)="addLeave()">Add Leave</button>
+    <button class="save-btn" (click)="saveLeave()">Save Changes</button>
+  </div>
+</div>

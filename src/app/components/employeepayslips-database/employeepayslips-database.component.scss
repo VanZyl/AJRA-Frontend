@@ -1,0 +1,46 @@
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: auto;
+    width: 100%;
+    font-size: 14px;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 3px;
+    text-align: center;
+}
+
+form {
+    margin-top: 20px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: right;
+}
+
+
+.wrapper {
+    width: 100%;
+    overflow-x: auto; /* Allow horizontal scrolling */
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 8px; /* Reduce font size for smaller screens */
+    }
+
+    form {
+        margin-left: 20px; /* Adjust form margin */
+    }
+}

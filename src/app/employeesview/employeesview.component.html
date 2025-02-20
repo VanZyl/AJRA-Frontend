@@ -1,0 +1,79 @@
+@if (employeeItems.length === 0) {
+    <p>No employees found</p>
+}
+@if (employeeItems.length > 0) {
+    <div class="form-container">
+        <select name="selectedEmployee" [(ngModel)]="selectedEmployee" (change)="getEmployee()">
+            <option default>Select Employee</option>
+            @for (employee of employeeItems; track $index) {
+                    <option [value]="employee.id">{{employee.name}} {{employee.surname}}</option>
+            }
+        </select>
+    </div>
+
+
+    <div class="container">
+        <!-- Tab Navigation -->
+        <nav class="tabs">
+          <button class="tab" [class.active]="activeTab === 'personal'" (click)="switchTab('personal')">Personal</button>
+          <!-- <button class="tab" [class.active]="activeTab === 'payment'" (click)="switchTab('payment')">Payment</button> -->
+          <!-- <button class="tab" [class.active]="activeTab === 'rates'" (click)="switchTab('rates')">Rates</button> -->
+          <button class="tab" [class.active]="activeTab === 'leave'" (click)="switchTab('leave')">Leave</button>
+          <!-- <button class="tab" [class.active]="activeTab === 'userDef'" (click)="switchTab('userDef')">User Def.</button> -->
+          <!-- <button class="tab" [class.active]="activeTab === 'statutory'" (click)="switchTab('statutory')">Statutory</button> -->
+          <!-- <button class="tab" [class.active]="activeTab === 'funds'" (click)="switchTab('funds')">Funds</button> -->
+          <!-- <button class="tab" [class.active]="activeTab === 'skills'" (click)="switchTab('skills')">Skills/Equity</button> -->
+          <!-- <button class="tab" [class.active]="activeTab === 'councils'" (click)="switchTab('councils')">Councils</button> -->
+        </nav>
+      
+        <!-- Content Section -->
+        <div class="content">
+          @if (activeTab === 'leave') {
+            @if (selectedEmployee() != "Select Employee") {
+            <app-employeeleave [employee]="employee"></app-employeeleave>
+            }
+          }
+          @if(activeTab === 'personal') {
+            @if (selectedEmployee() === "Select Employee") {
+              <app-employeepersonalinformation [employee]="newEmployee" [isNewEmployee]="true"></app-employeepersonalinformation>
+            }
+            @if (selectedEmployee() != "Select Employee") {
+              <app-employeepersonalinformation [employee]="employee" [isNewEmployee]="false"></app-employeepersonalinformation>
+            }
+            
+          }
+        </div>
+      </div>
+
+}
+
+
+<!-- <table *ngIf="activeTab === 'leave'" class="leave-table">
+  <thead>
+    <tr>
+      <th>Leave Code</th>
+      <th>Description</th>
+      <th>Opening Balance</th>
+      <th>Days Accrued</th>
+      <th>Days Taken</th>
+      <th>Days Due</th>
+      <th>Cycle Leave Entitlement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let leave of leaves">
+      <td>{{ leave.code }}</td>
+      <td>{{ leave.description }}</td>
+      <td>{{ leave.openingBalance }}</td>
+      <td>{{ leave.daysAccrued }}</td>
+      <td>{{ leave.daysTaken }}</td>
+      <td>{{ leave.daysDue }}</td>
+      <td>{{ leave.cycleEntitlement }}</td>
+    </tr>
+  </tbody>
+</table> -->
+
+<!-- <div *ngIf="activeTab === 'leave'" class="footer">
+  <span>Double-click to view the transactions for the currently selected leave code.</span>
+  <button class="delete-btn">Delete Line</button>
+</div> -->

@@ -1,0 +1,162 @@
+
+.content {
+    padding: 16px;
+    }
+    
+    .leave-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    }
+    
+    .leave-table th,
+    .leave-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+    }
+    
+    .leave-table th {
+    background-color: #eee;
+    font-weight: bold;
+    }
+    
+    .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #e9f4ff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    font-size: 14px;
+    }
+    
+    .delete-btn {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    }
+    
+    .delete-btn:hover {
+    background-color: #ff0000;
+    }
+    
+    @media (max-width: 768px) {
+    
+    
+    }
+
+/* Buttons Container */
+.buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  
+  /* Add Button */
+  .add-btn {
+    background-color: #28a745; /* Green */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* Save Button */
+  .save-btn {
+    background-color: #007bff; /* Blue */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .save-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Table Input Styling */
+.table-input {
+    width: 100%; /* Make the input stretch to fill the cell */
+    padding: 6px 8px; /* Add padding for better spacing */
+    border: 1px solid #ccc; /* Match the table's border color */
+    border-radius: 4px; /* Add a subtle border radius for smooth edges */
+    font-size: 14px; /* Match the table font size */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+  }
+  
+  .table-input:focus {
+    outline: none; /* Remove default browser outline */
+    border-color: #007bff; /* Highlight border color on focus */
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5); /* Add a subtle shadow for focus */
+  }
+  
+  .table-input[type="date"] {
+    text-align: center; /* Center-align the date inputs */
+  }
+  
+
+  /* Dropdown Styling */
+.table-select {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+  
+  .table-select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Add Option Form Styling */
+  .add-option-container {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  
+  .add-option-input {
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  .add-option-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-option-btn:hover {
+    background-color: #218838;
+  }
+  
