@@ -42,9 +42,9 @@ export class EmployeesService {
     return this.http.get(url)
   }
 
-    addEmployeeLeave(leaveitem: Leave){
+  addEmployeeLeave(leaveitem: Leave){
     // const url = 'http://localhost:5000/api/employeeleave'
-    const url = this.url + '/employeeleave'
+    const url = this.url + '/api/employeeleave'
     return this.http.post(url, leaveitem)
   }
 
