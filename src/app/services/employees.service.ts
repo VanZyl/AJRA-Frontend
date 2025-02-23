@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Employee } from '../model/employee.type';
 import { HttpClient } from '@angular/common/http';
+import { Leave } from '../model/leave.type';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class EmployeesService {
   http = inject(HttpClient);
   url = 'http://192.168.0.181:50000'
+  // url = 'http://localhost:5146'
+
   
   getEmployees(){
     // const url = 'http://localhost:5146/api/employee'
@@ -39,5 +42,10 @@ export class EmployeesService {
     return this.http.get(url)
   }
 
+    addEmployeeLeave(leaveitem: Leave){
+    // const url = 'http://localhost:5000/api/employeeleave'
+    const url = this.url + '/employeeleave'
+    return this.http.post(url, leaveitem)
+  }
 
 }

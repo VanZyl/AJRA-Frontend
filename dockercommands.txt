@@ -2,5 +2,4 @@ For Angular (Moet gerun word uit die AJRA-Frontend file):
     1.1) Docker build --no-cache -t ajra-frontend:v1.0.0 .
     OR
     1.2) Docker build -t ajra-frontend:v1.0.0 .
-    2) Docker run --network ajranetwork -p 4201:4200 --restart=always ajra-frontend:v1.0.0
-    2.2) Docker run --network ajranetwork -p 4201:4200 --restart=always ajra-frontend:v1.0.0
+    2) Docker run --network ajranetwork -p 4201:4200 --restart=always ajra-frontend:v1.0.1

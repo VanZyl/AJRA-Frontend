@@ -17,12 +17,12 @@
         @if (isEditing() && $index === leaveItems().length - 1) {
           <tr>
             <td>
-              {{item.TransCode}}
+              {{item.transCode}}
             </td>
             <td>
               <select
                 class="table-select"
-                [(ngModel)]="item.Description"
+                [(ngModel)]="item.description"
                 (ngModelChange)="updateTransCode(item)"
               >
                 @for (option of leaveOptions; track option.code) {
@@ -30,23 +30,23 @@
                 }
               </select>
             </td>
-            <td><input type="date" [(ngModel)]="item.DateFrom" /></td>
-            <td><input type="date" [(ngModel)]="item.DateTo" /></td>
-            <td><input type="text" [(ngModel)]="item.DaysTaken" /></td>
-            <td><input type="text" [(ngModel)]="item.DaysAccrued" /></td>
-            <td><input type="text" [(ngModel)]="item.DaysDue" /></td>
-            <td><input type="text" [(ngModel)]="item.Remarks" /></td>
+            <td><input type="date" [(ngModel)]="item.dateFrom" /></td>
+            <td><input type="date" (change)="getDay()" [(ngModel)]="item.dateTo" /></td>
+            <td><input type="text" [(ngModel)]="item.daysTaken" disabled/></td>
+            <td><input type="text" [(ngModel)]="item.daysAccrued" disabled/></td>
+            <td><input type="text" [(ngModel)]="item.daysDue" disabled/></td>
+            <td><input type="text" [(ngModel)]="item.remarks" /></td>
           </tr>
         }@else{
           <tr>
-            <td>{{ item.TransCode }}</td>
-            <td>{{ item.Description }}</td>
-            <td>{{ item.DateFrom }}</td>
-            <td>{{ item.DateTo }}</td>
-            <td>{{ item.DaysTaken }}</td>
-            <td>{{ item.DaysAccrued }}</td>
-            <td>{{ item.DaysDue }}</td>
-            <td>{{ item.Remarks }}</td>
+            <td>{{ item.transCode }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.dateFrom }}</td>
+            <td>{{ item.dateTo }}</td>
+            <td>{{ item.daysTaken }}</td>
+            <td>{{ item.daysAccrued }}</td>
+            <td>{{ item.daysDue }}</td>
+            <td>{{ item.remarks }}</td>
           </tr>
         }
         
@@ -56,7 +56,12 @@
 
   <!-- Buttons Section -->
   <div class="buttons-container">
-    <button class="add-btn" (click)="addLeave()">Add Leave</button>
-    <button class="save-btn" (click)="saveLeave()">Save Changes</button>
+    @if (isEditing()) {
+      <button class="save-btn" (click)="saveLeave()">Save Changes</button>
+    }@else{
+      <button class="add-btn" (click)="addLeave()">Add Leave</button>
+    }
+    
+    
   </div>
 </div>

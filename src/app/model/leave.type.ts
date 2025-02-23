@@ -1,12 +1,12 @@
 export type Leave = {
-    TransCode : string;
-    EmployeeId : string;
-    Description : string;
-    DateFrom : string;
-    DateTo : string;
-    DaysTaken: number;
-    DaysAccrued: number;
-    DaysDue: number;
-    Remarks : string;
+    transCode : string;
+    employeeId : string;
+    description : string;
+    dateFrom : string;
+    dateTo : string;
+    daysTaken: number;
+    daysAccrued: number;
+    daysDue: number;
+    remarks : string;
 }
 

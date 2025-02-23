@@ -17,7 +17,9 @@ export type PayslipSummary = {
     wastages : number;
     otherDeductions : number;
     netAmount : number;
+    leaveBF : number;
     leaveAcc : number;
+    leaveTaken : number;
     paySlipCycle : string;
     paySlipDate : string; 
     workdays : Array<string>; 

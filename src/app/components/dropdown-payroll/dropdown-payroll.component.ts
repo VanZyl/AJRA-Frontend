@@ -83,11 +83,12 @@ export class DropdownPayrollComponent implements OnInit{
   }
 
   onLeaveTaken(){
-    this.payslip().leaveHoursWorked = parseFloat((this.payslip().leaveTaken * 7).toFixed(2));
-    this.payslip().leaveAmountPaid = parseFloat((this.payslip().leaveHoursWorked * this.payslip().hourlyRate).toFixed(2));
-    this.payslip().grossAmount = parseFloat((this.payslip().normalAmountPaid + this.payslip().overtimeAmountPaid + this.payslip().publicHolidayAmountPaid + this.payslip().leaveAmountPaid).toFixed(2));
-    this.payslip().uifContribution = parseFloat((this.payslip().grossAmount * 0.01).toFixed(2));
-    this.payslip().netAmount = parseFloat((this.payslip().grossAmount - this.payslip().uifContribution - this.payslip().barganingCouncil - this.payslip().uniforms - this.payslip().tillShortage - this.payslip().wastages - this.payslip().otherDeductions).toFixed(2));
+    // this.payslip().leaveHoursWorked = parseFloat((this.payslip().leaveTaken * 7).toFixed(2));
+    // this.payslip().leaveAmountPaid = parseFloat((this.payslip().leaveHoursWorked * this.payslip().hourlyRate).toFixed(2));
+    // this.payslip().grossAmount = parseFloat((this.payslip().normalAmountPaid + this.payslip().overtimeAmountPaid + this.payslip().publicHolidayAmountPaid + this.payslip().leaveAmountPaid).toFixed(2));
+    // this.payslip().uifContribution = parseFloat((this.payslip().grossAmount * 0.01).toFixed(2));
+    // this.payslip().netAmount = parseFloat((this.payslip().grossAmount - this.payslip().uifContribution - this.payslip().barganingCouncil - this.payslip().uniforms - this.payslip().tillShortage - this.payslip().wastages - this.payslip().otherDeductions).toFixed(2));
+    console.log("This is now done in the backend");
   }
 
   processData() {

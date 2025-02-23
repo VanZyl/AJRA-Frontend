@@ -14,6 +14,7 @@ export class PayslipsService {
   http = inject(HttpClient);
   employeeName: string = '';
   url = 'http://192.168.0.181:50000'
+  // url = 'http://localhost:5146'
 
   getPaySlips(){
     // const url = 'http://localhost:5146/api/payslip'
