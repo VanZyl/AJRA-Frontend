@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { EmployeeleaveComponent } from '../components/employeemanagment/employeeleave/employeeleave.component';
 import { EmployeepersonalinformationComponent } from '../components/employeemanagment/employeepersonalinformation/employeepersonalinformation.component';
+import { EmployeeDeductionsComponent } from "../components/employeemanagment/employee-deductions/employee-deductions.component";
 
 @Component({
   selector: 'app-employeesview',
   standalone: true,
-  imports: [FormsModule, CommonModule,EmployeeleaveComponent,EmployeepersonalinformationComponent],
+  imports: [FormsModule, CommonModule, EmployeeleaveComponent, EmployeepersonalinformationComponent, EmployeeDeductionsComponent],
   templateUrl: './employeesview.component.html',
   styleUrl: './employeesview.component.scss'
 })

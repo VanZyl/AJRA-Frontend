@@ -1,0 +1,50 @@
+<div class="content">
+    <table class="leave-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Uniforms</th>
+          <th>Till Shortage</th>
+          <th>Wastage</th>
+          <th>Other Deductions</th>
+          <th>Date</th>
+          <th>Reason</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of redbookItems(); track $index) {
+          @if (isEditing() && $index === redbookItems().length - 1 && item.employeeId === employee().id) {
+            <tr>
+              <td>
+                {{item.id}}
+              </td>
+              <td><input type="date" [(ngModel)]="item.uniforms" /></td>
+              <td><input type="date" [(ngModel)]="item.tillShortage" /></td>
+              <td><input type="text" [(ngModel)]="item.wastage" /></td>
+              <td><input type="text" [(ngModel)]="item.otherDeductions" /></td>
+              <td><input type="text" [(ngModel)]="item.date" /></td>
+              <td><input type="text" [(ngModel)]="item.reason" /></td>
+            </tr>
+          }@else{
+            <tr>
+              <td>{{ item.id }}</td>
+              <td>{{ item.uniforms }}</td>
+              <td>{{ item.tillShortage }}</td>
+              <td>{{ item.wastage }}</td>
+              <td>{{ item.otherDeductions }}</td>
+              <td>{{ item.date }}</td>
+              <td>{{ item.reason }}</td>
+            </tr>
+          }
+          
+        }
+      </tbody>
+    </table>
+  
+    <!-- Buttons Section -->
+    <!-- <div class="buttons-container">
+      <button class="add-btn" (click)="addLeave()">Add Leave</button>
+      <button class="save-btn" (click)="saveLeave()">Save Changes</button>
+    </div> -->
+</div>
+  

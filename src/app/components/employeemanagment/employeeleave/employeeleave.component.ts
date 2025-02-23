@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit, signal } from '@angular/core';
+import { Component, inject, input, OnChanges, OnInit, signal, SimpleChanges } from '@angular/core';
 import { Employee } from '../../../model/employee.type';
 import { FormsModule } from '@angular/forms';
 import { EmployeesService } from '../../../services/employees.service';
@@ -12,7 +12,7 @@ import { catchError } from 'rxjs';
   templateUrl: './employeeleave.component.html',
   styleUrl: './employeeleave.component.scss'
 })
-export class EmployeeleaveComponent implements OnInit{
+export class EmployeeleaveComponent implements OnChanges, OnInit{
   employee = input.required<Employee>();
   employeeService = inject(EmployeesService);
   leaveItems =  signal<Array<Leave>>([]);  
@@ -26,6 +26,19 @@ export class EmployeeleaveComponent implements OnInit{
 
 
  ngOnInit() {
+    this.employeeService.getEmployeeLeave(this.employee())
+    .pipe(
+      catchError((error: any) => {
+        console.log(error);
+        throw error;
+      }
+    ))
+    .subscribe((leave: any) =>{
+      this.leaveItems.set(leave.sort((a: Leave, b: Leave) => a.DateFrom.localeCompare(b.DateFrom)));
+    })
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
     this.employeeService.getEmployeeLeave(this.employee())
     .pipe(
       catchError((error: any) => {

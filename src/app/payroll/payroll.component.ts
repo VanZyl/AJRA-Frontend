@@ -173,7 +173,7 @@ export class PayrollComponent implements OnInit {
 
   addDeduction(){
     console.log(this.selectedEmployee().toString());
-    const formattedDate = `${this.year()}-${this.month()}-${this.day()}T00:00:00Z`;
+    const formattedDate = `${this.year()}-${String(this.month()).padStart(2, '0')}-${String(this.day()).padStart(2, '0')}T00:00:00Z`;
     const redbook = {
       employeeId : this.selectedEmployee().toString(),
       uniforms : this.uniforms(),

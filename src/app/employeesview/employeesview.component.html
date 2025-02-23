@@ -16,10 +16,8 @@
         <!-- Tab Navigation -->
         <nav class="tabs">
           <button class="tab" [class.active]="activeTab === 'personal'" (click)="switchTab('personal')">Personal</button>
-          <!-- <button class="tab" [class.active]="activeTab === 'payment'" (click)="switchTab('payment')">Payment</button> -->
-          <!-- <button class="tab" [class.active]="activeTab === 'rates'" (click)="switchTab('rates')">Rates</button> -->
           <button class="tab" [class.active]="activeTab === 'leave'" (click)="switchTab('leave')">Leave</button>
-          <!-- <button class="tab" [class.active]="activeTab === 'userDef'" (click)="switchTab('userDef')">User Def.</button> -->
+          <button class="tab" [class.active]="activeTab === 'deductions'" (click)="switchTab('deductions')">Deductions</button>
           <!-- <button class="tab" [class.active]="activeTab === 'statutory'" (click)="switchTab('statutory')">Statutory</button> -->
           <!-- <button class="tab" [class.active]="activeTab === 'funds'" (click)="switchTab('funds')">Funds</button> -->
           <!-- <button class="tab" [class.active]="activeTab === 'skills'" (click)="switchTab('skills')">Skills/Equity</button> -->
@@ -28,19 +26,26 @@
       
         <!-- Content Section -->
         <div class="content">
-          @if (activeTab === 'leave') {
-            @if (selectedEmployee() != "Select Employee") {
+          @if (activeTab === 'leave') 
+          {
+            @if (selectedEmployee() != "Select Employee") 
+            {
             <app-employeeleave [employee]="employee"></app-employeeleave>
             }
           }
           @if(activeTab === 'personal') {
-            @if (selectedEmployee() === "Select Employee") {
+            @if (selectedEmployee() === "Select Employee") 
+            {
               <app-employeepersonalinformation [employee]="newEmployee" [isNewEmployee]="true"></app-employeepersonalinformation>
             }
-            @if (selectedEmployee() != "Select Employee") {
+            @if (selectedEmployee() != "Select Employee") 
+            {
               <app-employeepersonalinformation [employee]="employee" [isNewEmployee]="false"></app-employeepersonalinformation>
             }
-            
+          }
+          @if (activeTab === 'deductions') 
+          {
+            <app-employee-deductions [employee]="employee"></app-employee-deductions>
           }
         </div>
       </div>

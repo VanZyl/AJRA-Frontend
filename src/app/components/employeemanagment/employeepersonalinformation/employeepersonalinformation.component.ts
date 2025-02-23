@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit, signal } from '@angular/core';
+import { Component, inject, input, OnChanges, OnInit, signal } from '@angular/core';
 import { Employee } from '../../../model/employee.type';
 import { FormsModule } from '@angular/forms';
 import { EmployeesService } from '../../../services/employees.service';
@@ -10,7 +10,7 @@ import { EmployeesService } from '../../../services/employees.service';
   templateUrl: './employeepersonalinformation.component.html',
   styleUrl: './employeepersonalinformation.component.scss'
 })
-export class EmployeepersonalinformationComponent implements OnInit{
+export class EmployeepersonalinformationComponent implements OnChanges, OnInit {
   employeeService = inject(EmployeesService);
   isNewEmployee = input.required<boolean>();
   employee = input.required<Employee>();
@@ -21,6 +21,11 @@ export class EmployeepersonalinformationComponent implements OnInit{
 
   ngOnInit() {
     // Manually call the onDesignationSelect function with the current employee
+    console.log(this.employee());
+    this.onDesignationSelect(this.employee());
+  }
+
+  ngOnChanges(): void {
     console.log(this.employee());
     this.onDesignationSelect(this.employee());
   }
