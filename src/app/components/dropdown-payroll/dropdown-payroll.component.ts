@@ -101,13 +101,14 @@ export class DropdownPayrollComponent implements OnInit{
 
     // Process data list
     this.processedData = this.payslip().workdays
-      .filter((_, index) => !exclusions.has(index)) // Exclude items by index
+      // .filter((_, index) => !exclusions.has(index)) // Exclude items by index
       .map((entry) => this.extractData(entry));
-    
+
+    console.log(this.processedData);
     this.processedData.forEach(element => {
       exclusions.forEach(exclusion => {
-        if (parseInt(element.day.split("/")[2],10) === parseInt(exclusion.toString(),10)) {
-          console.log('Exclusion Found: ' + element.day + " " + exclusion);
+        if (parseInt(element.day.split("/")[1],10) === parseInt(exclusion.toString(),10)) {
+          console.log('Exclusion Found: ' + element.day + " " + exclusion + " " + parseInt(element.day.split("/")[1],10));
           if (element.isSunday) {
             this.excludeOvertime += this.timeToFloat(element.totalHours);
           }
@@ -157,11 +158,13 @@ export class DropdownPayrollComponent implements OnInit{
 
   extractData(entry: string) {
     // Extract fields using regular expressions
-    const dayMatch = entry.match(/Current Day: (\d{4}\/\d{2}\/\d{2})/);
+    console.log(entry);
+    const dayMatch = entry.match(/Current Day: (\d{2}\/\d{2}\/\d{4})/);
     const totalHoursMatch = entry.match(/Total Hours: (\d{2}:\d{2}:\d{2})/);
     const isSundayMatch = entry.match(/IsSunday:(True|False)/);
     const isHolidayMatch = entry.match(/IsHoliday:(True|False)/);
 
+    console.log(dayMatch ? dayMatch[1] : null);
     return {
       day: dayMatch ? dayMatch[1] : null,
       totalHours: totalHoursMatch ? totalHoursMatch[1] : null,
