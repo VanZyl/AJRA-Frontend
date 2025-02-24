@@ -123,7 +123,6 @@ export class PayrollComponent implements OnInit {
     this.loading = !this.loading;
     console.log(this.file);
     for (let i = 0; i < this.employeeItems.length; i++) {
-    
       if (this.file && this.employeeItems[i].workStatus === 'Active') {
         this.payslipService.createPaySlip(this.file, this.employeeItems[i]).subscribe(data => {
             const payslip: Payslip = {
@@ -138,8 +137,8 @@ export class PayrollComponent implements OnInit {
               overtimeAmountPaid : data.overtimeAmountPaid,
               publicHolidayHoursWorked : data.publicHolidayHoursWorked,
               publicHolidayAmountPaid : data.publicHolidayAmountPaid,
-              leaveHoursWorked : 0.0,
-              leaveAmountPaid : 0.0,
+              leaveHoursWorked : data.leaveHoursWorked,
+              leaveAmountPaid : data.leaveAmountPaid,
               grossAmount : data.grossAmount,
               uifContribution : data.uifContribution,
               barganingCouncil : data.barganingCouncil,

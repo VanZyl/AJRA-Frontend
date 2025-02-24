@@ -9,6 +9,8 @@ export type PayslipSummary = {
     overtimeAmountPaid : number;
     publicHolidayHoursWorked : number;
     publicHolidayAmountPaid : number;
+    leaveHoursWorked : number;
+    leaveAmountPaid : number;
     grossAmount : number;
     uifContribution : number;
     barganingCouncil : number;
